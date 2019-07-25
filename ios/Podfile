@@ -28,6 +28,8 @@ target 'ReduxWorkspace' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
+  pod 'Firebase/Core', '~> 6.3.0'
+  pod 'Firebase/Storage'
 
 
   pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'

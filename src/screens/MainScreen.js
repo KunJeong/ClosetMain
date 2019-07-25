@@ -9,7 +9,7 @@ import { Realm } from 'realm';
 
 import MainFeed from './MainFeed';
 import Search from './Search/Search';
-import MyCloset from './MyCloset';
+import MyCloset from './MyCloset/MyCloset';
 import MyPage from './MyPage';
 import ScrapBook from './ScrapBook';
 import Icon from 'react-native-vector-icons/Ionicons';
