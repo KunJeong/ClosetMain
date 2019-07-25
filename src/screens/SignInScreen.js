@@ -1,3 +1,7 @@
+/**
+ * @flow
+ */
+
 import React, { Component } from 'react';
 import {
   StyleSheet,
@@ -12,12 +16,11 @@ import {
 import Realm from 'realm';
 import {SERVER_URL} from '../constants';
 import { User } from '../schemas';
-import { thisTypeAnnotation } from '@babel/types';
 
 // const email = "";
 // const passworld = "";
 
-export default class SignInScreen extends Component {
+export default class SignInScreen extends Component<{}> {
   constructor(props) {
     super(props);
     this.state = {
@@ -33,18 +36,18 @@ export default class SignInScreen extends Component {
 
   async signIn() {
     try {
-      this.setState({ error: undefined });
+      // this.setState({ error: undefined });
       let creds = await Realm.Sync.Credentials.usernamePassword(this.state.email, this.state.password, false);
       var currentUser = await Realm.Sync.User.login(SERVER_URL, creds).then(user => {
-        const config = user.createConfiguration({
-          schema: [ One_Image, Post, Clothes, Closet, Scrap, User, Tag ]
-        });
+        // const config = user.createConfiguration({
+        //   schema: [ One_Image, Post, Clothes, Closet, Scrap, User, Tag ]
+        // });
         var realm = new Realm({
           sync: {
             user: user,
             url: SERVER_URL,
           },
-          config
+          // config
         })
       });
     }
@@ -56,7 +59,7 @@ export default class SignInScreen extends Component {
       
     // this.props.navigation.navigate(isAuthenticated ? 'Auth': 'App');
     if(isAuthenticated){
-      this.props.navigation.navigate('App', {realm: realm, user : currentUser});
+      this.props.navigation.navigate('App');
     }
     else{
       Alert.alert(

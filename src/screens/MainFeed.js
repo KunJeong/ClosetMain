@@ -6,7 +6,8 @@ import React, { Component } from "react";
 import { 
     View,
     Text,
-    StyleSheet
+    StyleSheet,
+    Platform
 } from "react-native";
 import { Provider } from 'react-redux';
 import configureStore from '../redux/configureStore'
@@ -18,7 +19,8 @@ class MainFeed extends Component<{}> {
     render() {
         return (
             <Provider store={store}>
-                <MasonryContainer />
+				<View style = {{height: Platform.OS === 'ios'? 44 : 0, backgroundColor: '#FFE7FF'}}></View>
+                <MasonryContainer post={true}/>
             </Provider>
         );
     }

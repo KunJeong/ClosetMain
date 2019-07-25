@@ -5,8 +5,11 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* ReduxWorkspaceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ReduxWorkspaceTests.m */; };
+		0DFF853980AF4C8A9169009D /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B563335175144DCFAC7BB3BA /* Fontisto.ttf */; };
+		11F53C449E10447B8D370533 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7E845C8686E0408B939970C2 /* EvilIcons.ttf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -14,30 +17,28 @@
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		2D130591BF574EF09940210F /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 942DA38D458D4876BB03481D /* Octicons.ttf */; };
 		2DCD954D1E0B4F2C00145EB5 /* ReduxWorkspaceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ReduxWorkspaceTests.m */; };
-		CB858B600311F7C167854AF9 /* libPods-ReduxWorkspace-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E554A1141BF731B29F8FB7E /* libPods-ReduxWorkspace-tvOSTests.a */; };
-		CD06F9C997BC72AF6EF8BA49 /* libPods-ReduxWorkspace.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 480A945F3B8FEEB0201540B7 /* libPods-ReduxWorkspace.a */; };
-		D153A174FDEAD09B151A4510 /* libPods-ReduxWorkspaceTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B247BD20C8C994B839AB0907 /* libPods-ReduxWorkspaceTests.a */; };
-		E4FB4609D7CBE31DC950DD8D /* libPods-ReduxWorkspace-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B251077EAD22744B5BC01911 /* libPods-ReduxWorkspace-tvOS.a */; };
+		33042924D08B41FDBC9FB804 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AA290C8F8386435983F606F0 /* libc++.tbd */; };
+		42ACE0F17941410280FD1EA8 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80F74FD7891C4F3A93F06926 /* MaterialCommunityIcons.ttf */; };
+		4469360507BA4471BF6F21FA /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FBCD1AC755414623869F133D /* FontAwesome5_Regular.ttf */; };
+		538E4DB49BCA4894BB2F71D3 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E15B9E7AC8FB4B46949D14AC /* MaterialIcons.ttf */; };
+		5E32FACA925A494C8DF81096 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7EA140C068841F1B5CD9C84 /* Feather.ttf */; };
+		6052F48882F54288AB13717E /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 50F9E7CD31934589BA525514 /* libz.tbd */; };
+		6E230CA8A1304CE784BCC086 /* libRealmReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F3D474777F4A889ED4049C /* libRealmReact.a */; };
 		710B2476F6E44CFF8FA48EA5 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C7F7D2DF6F64A2B92FA5202 /* AntDesign.ttf */; };
 		7C8F5EA1DAC840D795D1604E /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD2AF2BFFFBD4AB8BA71855F /* Entypo.ttf */; };
-		11F53C449E10447B8D370533 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7E845C8686E0408B939970C2 /* EvilIcons.ttf */; };
-		5E32FACA925A494C8DF81096 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7EA140C068841F1B5CD9C84 /* Feather.ttf */; };
-		EDF8575FFDB94BC9AE3B4FFC /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA0058D1DF7E4AB6AA3020B9 /* FontAwesome.ttf */; };
-		95D320F121D84725AD4D7AF8 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4BED3EFB52E542F183343413 /* FontAwesome5_Brands.ttf */; };
-		4469360507BA4471BF6F21FA /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FBCD1AC755414623869F133D /* FontAwesome5_Regular.ttf */; };
-		B032D01193544BF88782BE6C /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8FF65EEA14CD441883C0794E /* FontAwesome5_Solid.ttf */; };
-		0DFF853980AF4C8A9169009D /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B563335175144DCFAC7BB3BA /* Fontisto.ttf */; };
 		9021938DDF1148109644AEDD /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18DB091DAEDF413CACAFE6A6 /* Foundation.ttf */; };
-		CE663C9141974462B92505F4 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FE3AD7CA7E84E82B634A2DE /* Ionicons.ttf */; };
-		42ACE0F17941410280FD1EA8 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80F74FD7891C4F3A93F06926 /* MaterialCommunityIcons.ttf */; };
-		538E4DB49BCA4894BB2F71D3 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E15B9E7AC8FB4B46949D14AC /* MaterialIcons.ttf */; };
-		2D130591BF574EF09940210F /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 942DA38D458D4876BB03481D /* Octicons.ttf */; };
-		E5F952B993134E48A321A1DC /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AF6FA85171345088C9C29AF /* SimpleLineIcons.ttf */; };
+		95D320F121D84725AD4D7AF8 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4BED3EFB52E542F183343413 /* FontAwesome5_Brands.ttf */; };
+		B032D01193544BF88782BE6C /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8FF65EEA14CD441883C0794E /* FontAwesome5_Solid.ttf */; };
 		B9E8537AA3D34CE3A8CD31EB /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 435057C991F24ED5922EB67C /* Zocial.ttf */; };
-		6E230CA8A1304CE784BCC086 /* libRealmReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F3D474777F4A889ED4049C /* libRealmReact.a */; };
-		33042924D08B41FDBC9FB804 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AA290C8F8386435983F606F0 /* libc++.tbd */; };
-		6052F48882F54288AB13717E /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 50F9E7CD31934589BA525514 /* libz.tbd */; };
+		CB858B600311F7C167854AF9 /* libPods-ReduxWorkspace-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E554A1141BF731B29F8FB7E /* libPods-ReduxWorkspace-tvOSTests.a */; };
+		CD06F9C997BC72AF6EF8BA49 /* libPods-ReduxWorkspace.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 480A945F3B8FEEB0201540B7 /* libPods-ReduxWorkspace.a */; };
+		CE663C9141974462B92505F4 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FE3AD7CA7E84E82B634A2DE /* Ionicons.ttf */; };
+		D153A174FDEAD09B151A4510 /* libPods-ReduxWorkspaceTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B247BD20C8C994B839AB0907 /* libPods-ReduxWorkspaceTests.a */; };
+		E4FB4609D7CBE31DC950DD8D /* libPods-ReduxWorkspace-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B251077EAD22744B5BC01911 /* libPods-ReduxWorkspace-tvOS.a */; };
+		E5F952B993134E48A321A1DC /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AF6FA85171345088C9C29AF /* SimpleLineIcons.ttf */; };
+		EDF8575FFDB94BC9AE3B4FFC /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA0058D1DF7E4AB6AA3020B9 /* FontAwesome.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
 			remoteInfo = ReduxWorkspace;
+		};
+		17C1940422E9396B00F23827 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0396BB3AA5204A4F959FE589 /* RealmReact.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F60690131CA2766F0003FB26;
+			remoteInfo = RealmReact;
 		};
 		2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -62,6 +70,7 @@
 		00E356EE1AD99517003FC87E /* ReduxWorkspaceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReduxWorkspaceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* ReduxWorkspaceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReduxWorkspaceTests.m; sourceTree = "<group>"; };
+		0396BB3AA5204A4F959FE589 /* RealmReact.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RealmReact.xcodeproj; path = "../node_modules/realm/react-native/ios/RealmReact.xcodeproj"; sourceTree = "<group>"; };
 		0E554A1141BF731B29F8FB7E /* libPods-ReduxWorkspace-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReduxWorkspace-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07F961A680F5B00A75B9A /* ReduxWorkspace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReduxWorkspace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ReduxWorkspace/AppDelegate.h; sourceTree = "<group>"; };
@@ -70,41 +79,40 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ReduxWorkspace/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ReduxWorkspace/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ReduxWorkspace/main.m; sourceTree = "<group>"; };
+		18DB091DAEDF413CACAFE6A6 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		1EAF3C1F9C2016FA37FEECCD /* Pods-ReduxWorkspace.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReduxWorkspace.debug.xcconfig"; path = "Target Support Files/Pods-ReduxWorkspace/Pods-ReduxWorkspace.debug.xcconfig"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* ReduxWorkspace-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ReduxWorkspace-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* ReduxWorkspace-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ReduxWorkspace-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BD782621250151FFAC5DD7F /* Pods-ReduxWorkspace-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReduxWorkspace-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-ReduxWorkspace-tvOSTests/Pods-ReduxWorkspace-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3FE3AD7CA7E84E82B634A2DE /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
+		435057C991F24ED5922EB67C /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		480A945F3B8FEEB0201540B7 /* libPods-ReduxWorkspace.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReduxWorkspace.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BED3EFB52E542F183343413 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
+		50F9E7CD31934589BA525514 /* libz.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		5AD0D43BB5FA530E3522CFC0 /* Pods-ReduxWorkspace-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReduxWorkspace-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-ReduxWorkspace-tvOS/Pods-ReduxWorkspace-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		7AF6FA85171345088C9C29AF /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
+		7C7F7D2DF6F64A2B92FA5202 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
+		7E845C8686E0408B939970C2 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
+		80F74FD7891C4F3A93F06926 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
+		8FF65EEA14CD441883C0794E /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
+		942DA38D458D4876BB03481D /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		96B33D4837A18086F61E9ADF /* Pods-ReduxWorkspace.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReduxWorkspace.release.xcconfig"; path = "Target Support Files/Pods-ReduxWorkspace/Pods-ReduxWorkspace.release.xcconfig"; sourceTree = "<group>"; };
+		AA290C8F8386435983F606F0 /* libc++.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		AF1638E87C432DB26C09BC50 /* Pods-ReduxWorkspace-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReduxWorkspace-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-ReduxWorkspace-tvOSTests/Pods-ReduxWorkspace-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		B247BD20C8C994B839AB0907 /* libPods-ReduxWorkspaceTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReduxWorkspaceTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B251077EAD22744B5BC01911 /* libPods-ReduxWorkspace-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReduxWorkspace-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B563335175144DCFAC7BB3BA /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
+		B7EA140C068841F1B5CD9C84 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		C19CE3B09E60169307906BEE /* Pods-ReduxWorkspaceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReduxWorkspaceTests.debug.xcconfig"; path = "Target Support Files/Pods-ReduxWorkspaceTests/Pods-ReduxWorkspaceTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CA0058D1DF7E4AB6AA3020B9 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		D0F3D474777F4A889ED4049C /* libRealmReact.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRealmReact.a; sourceTree = "<group>"; };
 		D2C61DE48EAACE9B141D26A3 /* Pods-ReduxWorkspace-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReduxWorkspace-tvOS.release.xcconfig"; path = "Target Support Files/Pods-ReduxWorkspace-tvOS/Pods-ReduxWorkspace-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		DD2AF2BFFFBD4AB8BA71855F /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
+		E15B9E7AC8FB4B46949D14AC /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		EC32905A1E12730876418AFE /* Pods-ReduxWorkspaceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReduxWorkspaceTests.release.xcconfig"; path = "Target Support Files/Pods-ReduxWorkspaceTests/Pods-ReduxWorkspaceTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		7C7F7D2DF6F64A2B92FA5202 /* AntDesign.ttf */ = {isa = PBXFileReference; name = "AntDesign.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		DD2AF2BFFFBD4AB8BA71855F /* Entypo.ttf */ = {isa = PBXFileReference; name = "Entypo.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		7E845C8686E0408B939970C2 /* EvilIcons.ttf */ = {isa = PBXFileReference; name = "EvilIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		B7EA140C068841F1B5CD9C84 /* Feather.ttf */ = {isa = PBXFileReference; name = "Feather.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		CA0058D1DF7E4AB6AA3020B9 /* FontAwesome.ttf */ = {isa = PBXFileReference; name = "FontAwesome.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		4BED3EFB52E542F183343413 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Brands.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		FBCD1AC755414623869F133D /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Regular.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		8FF65EEA14CD441883C0794E /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Solid.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		B563335175144DCFAC7BB3BA /* Fontisto.ttf */ = {isa = PBXFileReference; name = "Fontisto.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		18DB091DAEDF413CACAFE6A6 /* Foundation.ttf */ = {isa = PBXFileReference; name = "Foundation.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		3FE3AD7CA7E84E82B634A2DE /* Ionicons.ttf */ = {isa = PBXFileReference; name = "Ionicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		80F74FD7891C4F3A93F06926 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; name = "MaterialCommunityIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		E15B9E7AC8FB4B46949D14AC /* MaterialIcons.ttf */ = {isa = PBXFileReference; name = "MaterialIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		942DA38D458D4876BB03481D /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		7AF6FA85171345088C9C29AF /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		435057C991F24ED5922EB67C /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		0396BB3AA5204A4F959FE589 /* RealmReact.xcodeproj */ = {isa = PBXFileReference; name = "RealmReact.xcodeproj"; path = "../node_modules/realm/react-native/ios/RealmReact.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
-		D0F3D474777F4A889ED4049C /* libRealmReact.a */ = {isa = PBXFileReference; name = "libRealmReact.a"; path = "libRealmReact.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
-		AA290C8F8386435983F606F0 /* libc++.tbd */ = {isa = PBXFileReference; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = sourcecode.text-based-dylib-definition; explicitFileType = undefined; includeInIndex = 0; };
-		50F9E7CD31934589BA525514 /* libz.tbd */ = {isa = PBXFileReference; name = "libz.tbd"; path = "usr/lib/libz.tbd"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = sourcecode.text-based-dylib-definition; explicitFileType = undefined; includeInIndex = 0; };
+		FBCD1AC755414623869F133D /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +185,22 @@
 			name = ReduxWorkspace;
 			sourceTree = "<group>";
 		};
+		17C193FF22E9396A00F23827 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				D0F3D474777F4A889ED4049C /* libRealmReact.a */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		17C1940122E9396B00F23827 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				17C1940522E9396B00F23827 /* libRealmReact.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,7 +237,6 @@
 				435057C991F24ED5922EB67C /* Zocial.ttf */,
 			);
 			name = Resources;
-			path = "";
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -234,6 +257,7 @@
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				DFD5D809C0EED6A43CEB750A /* Pods */,
 				40EC37B1090849BC915ED8DF /* Resources */,
+				17C193FF22E9396A00F23827 /* Recovered References */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -263,7 +287,6 @@
 				C19CE3B09E60169307906BEE /* Pods-ReduxWorkspaceTests.debug.xcconfig */,
 				EC32905A1E12730876418AFE /* Pods-ReduxWorkspaceTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -377,12 +400,19 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 17C1940122E9396B00F23827 /* Products */;
+					ProjectRef = 0396BB3AA5204A4F959FE589 /* RealmReact.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				13B07F861A680F5B00A75B9A /* ReduxWorkspace */,
@@ -392,6 +422,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		17C1940522E9396B00F23827 /* libRealmReact.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRealmReact.a;
+			remoteRef = 17C1940422E9396B00F23827 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		00E356EC1AD99517003FC87E /* Resources */ = {
@@ -672,9 +712,17 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/realm/src/**",
+				);
 				INFOPLIST_FILE = ReduxWorkspaceTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -683,14 +731,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReduxWorkspace.app/ReduxWorkspace";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/realm/src/**",
-				);
 			};
 			name = Debug;
 		};
@@ -700,9 +740,17 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/realm/src/**",
+				);
 				INFOPLIST_FILE = ReduxWorkspaceTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -711,14 +759,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReduxWorkspace.app/ReduxWorkspace";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/realm/src/**",
-				);
 			};
 			name = Release;
 		};
@@ -729,6 +769,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/realm/src/**",
+				);
 				INFOPLIST_FILE = ReduxWorkspace/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -739,10 +783,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = ReduxWorkspace;
 				VERSIONING_SYSTEM = "apple-generic";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/realm/src/**",
-				);
 			};
 			name = Debug;
 		};
@@ -752,6 +792,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/realm/src/**",
+				);
 				INFOPLIST_FILE = ReduxWorkspace/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -762,10 +806,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = ReduxWorkspace;
 				VERSIONING_SYSTEM = "apple-generic";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/realm/src/**",
-				);
 			};
 			name = Release;
 		};
@@ -782,8 +822,16 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/realm/src/**",
+				);
 				INFOPLIST_FILE = "ReduxWorkspace-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -794,14 +842,6 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/realm/src/**",
-				);
 			};
 			name = Debug;
 		};
@@ -818,8 +858,16 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/realm/src/**",
+				);
 				INFOPLIST_FILE = "ReduxWorkspace-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -830,14 +878,6 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/realm/src/**",
-				);
 			};
 			name = Release;
 		};
@@ -853,8 +893,16 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/realm/src/**",
+				);
 				INFOPLIST_FILE = "ReduxWorkspace-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -865,14 +913,6 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReduxWorkspace-tvOS.app/ReduxWorkspace-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/realm/src/**",
-				);
 			};
 			name = Debug;
 		};
@@ -888,8 +928,16 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/realm/src/**",
+				);
 				INFOPLIST_FILE = "ReduxWorkspace-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -900,14 +948,6 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReduxWorkspace-tvOS.app/ReduxWorkspace-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/realm/src/**",
-				);
 			};
 			name = Release;
 		};

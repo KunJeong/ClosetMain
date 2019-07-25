@@ -18,7 +18,8 @@ type Props = {
 	data: Array<items>,
 	addToLeft: function,
 	addToRight: function,
-	masonry: any
+	masonry: any,
+	post: boolean
 }
 
 type State = {
@@ -436,6 +437,7 @@ export default class Masonry extends PureComponent<Props, State>{
 					flip={flip}
 					offset={margin}
 					viewportWidth={viewportWidth}
+					post={this.props.post}
 				/>
 			)
 		}
@@ -460,6 +462,7 @@ export default class Masonry extends PureComponent<Props, State>{
 					flip={flip}
 					offset={margin}
 					viewportWidth={viewportWidth}
+					post={this.props.post}
 				/>
 			)
 		}
@@ -468,8 +471,7 @@ export default class Masonry extends PureComponent<Props, State>{
 		this.props.data[0].first = true;
 		this.props.data[1].first = true;
 		return(
-			<View style = {{backgroundColor: '#FFFFFF'}}>
-				<View style = {{height: Platform.OS === 'ios'? 44 : 0, backgroundColor: '#FFE7FF'}}></View>
+			// <View style = {{backgroundColor: '#FFFFFF'}}>
 				<FlatList
 				numColumns={2}
 				data={this.props.data}
@@ -484,7 +486,7 @@ export default class Masonry extends PureComponent<Props, State>{
 				refreshing={true}
 				extraData = {viewportWidth}
 				/>
-			</View>
+			// </View>
 		)
 	}
 

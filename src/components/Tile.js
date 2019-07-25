@@ -13,6 +13,7 @@ type Props = {
     isLeft: boolean,
     flip: boolean,
     offset: number,
+    post: boolean
 };
 var viewportWidth = Dimensions.get('window').width;
 const gutter = 25;
@@ -31,11 +32,14 @@ export default class Block extends Component<Props>{
         height: 160,
         first: false,
         offset: 0,
-        left: 15
+        left: 15,
+        post: true
     }
 
     render(){
         return(
+            <View>
+            {this.props.post? 
         <ImageBackground
             source = {Platform.OS === 'ios'? require('../assets/gradient2.jpg') : require('../assets/gradient3.jpg')}
             style = {[
@@ -69,6 +73,22 @@ export default class Block extends Component<Props>{
             </View>
 
         </ImageBackground>
+        : 
+            <View
+                style = {[
+                    
+                    styles.post,
+                    {
+                        marginTop: this.props.first? verticalMargin : this.props.offset ,
+                        marginLeft: this.props.flip? (this.props.isLeft? flipRight : flipLeft) : (this.props.isLeft? leftMargin : gutter),
+                        height: this.props.height + extraHeight,
+                        backgroundColor: '#FFF',
+                    },
+                    styles.cardShadow]}>
+        
+            </View>
+        }
+        </View>
         )
     }
 }

@@ -4,8 +4,6 @@
 
 const LEFT_STACK = 'LEFT_STACK';
 const RIGHT_STACK = 'RIGHT_STACK';
-// const NORMAL_LAYOUT = 'NORMAL_LAYOUT';
-// const SWITCH_LAYOUT = 'SWITCH_LAYOUT';
 
 export function addToLeft(value: number, index: number, status){
   return {
@@ -24,18 +22,6 @@ export function addToRight(value: number, index: number, status) {
     status
   }
 }
-
-// export function normalLayout() {
-//   return {
-//     type: NORMAL_LAYOUT
-//   }
-// }
-
-// export function switchLayout() {
-//   return {
-//     type: SWITCH_LAYOUT
-//   }
-// }
 
 type State = {
 	leftMinusRight: number,
