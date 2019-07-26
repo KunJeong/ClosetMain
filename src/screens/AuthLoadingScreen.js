@@ -11,6 +11,8 @@ export default class AuthLoadingScreen extends Component<{}> {
   constructor(props) {
     super(props);
     this._bootstrapAsync();
+
+    // this.userLogoutAll()
   }
 
   // Fetch the token from storage then navigate to our appropriate place
@@ -24,7 +26,7 @@ export default class AuthLoadingScreen extends Component<{}> {
 
   userLogoutAll() {
     var users = Realm.Sync.User.all;
-    for(const key in users) {
+    for (const key in users) {
       const user = users[key];
       user.logout();
     }

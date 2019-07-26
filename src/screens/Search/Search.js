@@ -3,7 +3,7 @@
  */
 
 import React, { Component } from "react";
-import { 
+import {
     View,
     Text,
     StyleSheet,
@@ -27,6 +27,7 @@ const title2 = "Street"
 const title3 = "ThugLife"
 const title4 = "가로수길"
 const title5 = "High_Fashion"
+const categories = ['T-Shirt', 'Dress', 'Trousers', 'Skirt', 'Outer', 'Shoes', 'Hats', 'Accessories']
 const verticalMargin = 15;
 const leftMargin = 15;
 var viewportWidth = Dimensions.get('window').width;
@@ -38,14 +39,16 @@ type State = {
     searchResults?: array
 }
 class Search extends Component<{}, State> {
-    constructor(){
+    constructor() {
         super();
         this._onPressOptions = this._onPressOptions.bind(this);
         this.uponPress = this.uponPress.bind(this);
+        this.uponPressCategory = this.uponPressCategory.bind(this);
         this.state = {
-            text: "", 
-            Bar : false,
-            searchResults : []
+            text: "",
+            Bar: false,
+            searchResults: [],
+            category: 'none'
         }
     }
     // componentDidMount(){
@@ -54,99 +57,146 @@ class Search extends Component<{}, State> {
     //         this.startHeaderHeight = 100 + StatusBar.currentHeight
     //     }
     // }
-    uponPress(tag){
-        this.setState({text: this.state.text + " "+ tag}); 
+    uponPress(tag) {
+        this.setState({ text: this.state.text + " " + tag });
     }
-    _onPressOptions(){
-        this.setState({Bar : !this.state.Bar})
+
+    uponPressCategory(cat) {
+        if(this.state.category == 'none'){
+            this.setState({category: cat});
+            this.setState({ text: ":" + cat + " "+ this.state.text });
+        }
+        else{
+            this.setState({category: 'none'});
+            this.setState({ text: "" });
+        }
     }
-    optionBarRender(){
-        return(              
+    _onPressOptions() {
+        this.setState({ Bar: !this.state.Bar })
+    }
+    parseText(text:string){
+        var category = '';
+        var filters = [''];
+        var categoryStart = false;
+        var filterStart = false;
+        var filterIndex = 0;
+        for(let i=0; i<text.length; i++){
+            if(categoryStart && text[i] != ' '){
+                category += text[i]
+            }
+            else if(filterStart && text[i] != ' '){
+                filters[filterIndex] += text[i]
+            }
+            else if(text[i] == '#'){
+                filterStart = true;
+                filterIndex += 1;
+                filters.push('');
+            }
+            else if(text[i] == ':'){
+                categoryStart = true;
+            }
+            else if(text[i] == ' '){
+                filterStart = false;
+                categoryStart = false;
+            }
+        }
+        filters[0] = category;
+        return filters;
+    }
+
+    optionBarRender() {
+        return (
             <ImageBackground
-                    source = {Platform.OS === 'ios'? require('../../assets/gradient2.jpg') : require('../../assets/gradient3.jpg')}
-                    style = {[
-                        styles.cardShadow,
-                        styles.post,
-                        {flexDirection: 'row', elevation: 6, marginHorizontal: leftMargin, marginTop: verticalMargin, width: barWidth, paddingTop: 12}
-                    ]}
-                    imageStyle={{ borderRadius: 10 }}
-                >
-                <View style={{flexWrap: 'wrap', flexDirection:'row', alignItems: 'center'}}>                                                                                   
-                    <Category title="T-shirt" imageUri={require('../../assets/for_search/T.png')} uponPress={this.uponPress}/> 
-                    <Category title="Dress" imageUri={require('../../assets/for_search/dress.png')} uponPress={this.uponPress}/> 
-                    <Category title="Trousers" imageUri={require('../../assets/for_search/Trousers.png')} uponPress={this.uponPress}/> 
-                    <Category title="Skirt" imageUri={require('../../assets/for_search/skirt.png')} uponPress={this.uponPress}/>
-                    <Category title="Outer" imageUri={require('../../assets/for_search/outer.png')} uponPress={this.uponPress}/>
-                    <Category title="Shoes" imageUri={require('../../assets/for_search/shoes.png')} uponPress={this.uponPress}/> 
-                    <Category title="Hats" imageUri={require('../../assets/for_search/hats.png')} uponPress={this.uponPress}/> 
-                    <Category title="Accessories" imageUri={require('../../assets/for_search/accessories.png')} uponPress={this.uponPress}/> 
-                    <TAG title={title1} uponPress={this.uponPress}/>
-                    <TAG title={title2} uponPress={this.uponPress}/>
-                    <TAG title={title3} uponPress={this.uponPress}/>
-                    <TAG title={title4} uponPress={this.uponPress}/>
-                    <TAG title={title5} uponPress= {this.uponPress}/>
-                </View> 
+                source={Platform.OS === 'ios' ? require('../../assets/gradient2.jpg') : require('../../assets/gradient3.jpg')}
+                style={[
+                    styles.cardShadow,
+                    styles.post,
+                    { flexDirection: 'row', elevation: 6, marginHorizontal: leftMargin, marginTop: verticalMargin, width: barWidth }
+                ]}
+                imageStyle={{ borderRadius: 10 }}
+            >
+                <View style={{ flexWrap: 'wrap', flexDirection: 'row' }}>
+                    <Text style={{ fontWeight: 'bold', margin: 15, marginBottom: 0 }}> Categories </Text>
+                    <View style={{ flexWrap: 'wrap', flexDirection: 'row', alignItems: 'center', padding: 15, width: '100%' }}>
+                        <Category disabled={this.state.category!='none' &&this.state.category != categories[0]} active = {this.state.category == categories[0]} title={categories[0]} imageUri={require('../../assets/for_search/T.png')} uponPress={this.uponPressCategory} />
+                        <Category disabled={this.state.category!='none' &&this.state.category != categories[1]} active = {this.state.category == categories[1]} title={categories[1]} imageUri={require('../../assets/for_search/dress.png')} uponPress={this.uponPressCategory} />
+                        <Category disabled={this.state.category!='none' &&this.state.category != categories[2]} active = {this.state.category == categories[2]} title={categories[2]} imageUri={require('../../assets/for_search/Trousers.png')} uponPress={this.uponPressCategory} />
+                        <Category disabled={this.state.category!='none' &&this.state.category != categories[3]} active = {this.state.category == categories[3]} title={categories[3]} imageUri={require('../../assets/for_search/skirt.png')} uponPress={this.uponPressCategory} />
+                        <Category disabled={this.state.category!='none' &&this.state.category != categories[4]} active = {this.state.category == categories[4]} title={categories[4]} imageUri={require('../../assets/for_search/outer.png')} uponPress={this.uponPressCategory} />
+                        <Category disabled={this.state.category!='none' &&this.state.category != categories[5]} active = {this.state.category == categories[5]} title={categories[5]} imageUri={require('../../assets/for_search/shoes.png')} uponPress={this.uponPressCategory} />
+                        <Category disabled={this.state.category!='none' &&this.state.category != categories[6]} active = {this.state.category == categories[6]} title={categories[6]} imageUri={require('../../assets/for_search/hats.png')} uponPress={this.uponPressCategory} />
+                        <Category disabled={this.state.category!='none' &&this.state.category != categories[7]} active = {this.state.category == categories[7]} title={categories[7]} imageUri={require('../../assets/for_search/accessories.png')} uponPress={this.uponPressCategory} />
+                    </View>
+                    <Text style={{ fontWeight: 'bold', margin: 15, marginBottom: 0, width: '100%' }}> Trending Tags </Text>
+                    <View style={{ flexWrap: 'wrap', flexDirection: 'row', alignItems: 'center', padding: 15, width: '100%' }}>
+                        <TAG title={title1} uponPress={this.uponPress} />
+                        <TAG title={title2} uponPress={this.uponPress} />
+                        <TAG title={title3} uponPress={this.uponPress} />
+                        <TAG title={title4} uponPress={this.uponPress} />
+                        <TAG title={title5} uponPress={this.uponPress} />
+                    </View>
+                </View>
             </ImageBackground>
         )
     }
     render() {
         return (
             <View>
-                <View style = {{height: Platform.OS === 'ios'? 44 : 0, backgroundColor: '#FFE7FF'}}></View>
+                <View style={{ height: Platform.OS === 'ios' ? 44 : 0, backgroundColor: '#FFE7FF' }}></View>
                 <ImageBackground
-                    source = {Platform.OS === 'ios'? require('../../assets/gradient2.jpg') : require('../../assets/gradient3.jpg')}
-                    style = {[
+                    source={Platform.OS === 'ios' ? require('../../assets/gradient2.jpg') : require('../../assets/gradient3.jpg')}
+                    style={[
                         styles.cardShadow,
                         styles.post,
-                        {height: 50, elevation: 6, marginHorizontal: leftMargin, marginTop: verticalMargin, width: barWidth, paddingTop: 12}
+                        { height: 50, elevation: 6, marginHorizontal: leftMargin, marginTop: verticalMargin, width: barWidth, paddingTop: 12 }
                     ]}
                     imageStyle={{ borderRadius: 10 }}
                 >
                     <View style={{
-                        flexDirection:'row',
+                        flexDirection: 'row',
                         // shadowColor: '#000',
                         // shadowOffset: {width:0, height: 2},
                         // shadowOpacity: 0.3,
                         // shadowRadius: 2 ,
                         // elevation: 4 ,
                         // borderRadius: 10,
-                        }}>
-                          
-                        <Icon name="md-search" size={25} style={{paddingLeft: 15, paddingRight:15}}/>
+                    }}>
+
+                        <Icon name="md-search" size={25} style={{ paddingLeft: 15, paddingRight: 15 }} />
                         <TextInput
                             underlineColorAndroid='transparent'
-                            placeholder = "검색"
+                            placeholder="검색"
                             placeholderTextColor='grey'
-                            style={{flex:1, padding: 0, fontWeight:'700'}}
-                            onChangeText= {(text) => this.setState({text})}
-                            value ={this.state.text}
+                            style={{ flex: 1, padding: 0, fontWeight: '700' }}
+                            onChangeText={(text) => this.setState({ text })}
+                            value={this.state.text}
                         />
                         <TouchableOpacity
-                        
-                        onPress={this._onPressOptions}
-                        style={{paddingLeft: 15, paddingRight:15}}>
-                            <Icon 
-                            name="md-options" 
-                            size={25} 
-                            />      
+
+                            onPress={this._onPressOptions}
+                            style={{ paddingLeft: 15, paddingRight: 15 }}>
+                            <Icon
+                                name="md-options"
+                                size={25}
+                            />
 
                         </TouchableOpacity>
-                                      
-                    </View> 
-                    
-                    </ImageBackground>
-                    {this.state.Bar ? this.optionBarRender() : null}
+
+                    </View>
+
+                </ImageBackground>
+                {this.state.Bar ? this.optionBarRender() : null}
             </View>
         )
-    }   
+    }
 }
 
 const styles = StyleSheet.create({
     cardShadow: {
         shadowColor: '#000',
-        shadowOffset: {width:0, height: 2},
+        shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.3,
-        shadowRadius: 2 ,
+        shadowRadius: 2,
         elevation: 6
     },
     // image: {

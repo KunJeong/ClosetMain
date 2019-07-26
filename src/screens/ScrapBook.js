@@ -9,14 +9,48 @@ import {
     StyleSheet,
     Platform,
     ImageBackground,
+    Alert
 } from "react-native";
 import { Provider } from 'react-redux';
 import configureStore from '../redux/configureStore'
 import MasonryContainer from '../containers/masonryContainer'
+import Realm from 'realm'
+import { Tag, One_Image, Post, Closet, Clothes, User, Comment, LookBook } from '../schemas'
 
 const store = configureStore();
 
 class ScrapBook extends Component {
+    getData() {
+        //     const creds = Realm.Sync.Credentials.usernamePassword('zxcv', '1234', false);
+        // Realm.Sync.User.login('https://fashion.us1.cloud.realm.io', creds).then((user) => {
+        
+        const user = Realm.Sync.User.current 
+            let config = user.createConfiguration();
+            config.schema = [One_Image, Post, Tag, Clothes, Closet, Comment, LookBook, User]
+            config.validate_ssl=false
+            config.sync.url = 'realms://fashion.us1.cloud.realm.io/testRealm'
+            
+            Realm.open(config).then((realm) => {
+                // realm.write(() => {
+                //     let jonh = realm.create('Comment', {userId: 'add', commentId: '1010100', comment: 'wtf', like: []})
+                // });
+    
+                let carOwners = realm.objects('Comment');
+                let subscribe = carOwners.subscribe();
+                // Alert.alert('llll')
+                var total = ''
+                for (let p of carOwners) {
+                    total += p.comment.toString();
+                }
+                Alert.alert(total);
+            });
+        // });
+        }
+    
+        constructor() {
+            super();
+            this.getData()
+        }
     render() {
         return (
             <Provider store={store}>

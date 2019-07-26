@@ -26,7 +26,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 const TabBarComponent = (props) => (
   <ImageBackground
-  source = {require('../assets/gradient3.jpg')}
+  source = {require('../assets/gradient2.jpg')}
   style = {{
     width : Dimensions.get('window').width,
     height : 50
@@ -107,8 +107,9 @@ const tabs = createBottomTabNavigator({
       <TabBarComponent
         {...props}
         showLabel={false}
-        activeTintColor='#6B4279'
-        inactiveTintColor='#B993C7'
+        //6B4279
+        activeTintColor='#B993C7'
+        inactiveTintColor='#FFFFFF'
         style={{
           backgroundColor: null,
           borderTopWidth: null,
