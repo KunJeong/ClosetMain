@@ -15,26 +15,26 @@ class OutfitImage extends Component {
         this.PanResponder = PanResponder.create({
             onStartShouldSetPanResponder:(evt, gestureState) => false,
             onMoveShouldSetPanResponder:(evt, gestureState) => {
-                if(gestureState.dx > 2 || gestureState.dx < -2){
+                if(gestureState.dx > 5 || gestureState.dx < -5){
                     return true;
                 }else{
                     return false;
                 }
             }, 
             onPanResponderMove:(evt, gestureState) =>{
-                if(gestureState.dx > 10){
-                    this.position.setValue({x: 10, y: 0})
-                }else if(gestureState.dx < -10){
-                    this.position.setValue({x: -10, y:0 })
+                if(gestureState.dx > 15){
+                    this.position.setValue({x: 15, y: 0})
+                }else if(gestureState.dx < -15){
+                    this.position.setValue({x: -15, y:0 })
                 }else(
                     this.position.setValue({x: gestureState.dx, y: 0})
                 )
             },
             onPanResponderRelease:(evt, gestureState)=>{
-                if(gestureState.dx> 10){
+                if(gestureState.dx> 15){
                     this.setState({wantToDelete : !this.state.wantToDelete})
                     this.position.setValue({x:0, y:0})
-                }else if(gestureState.dx < -10){
+                }else if(gestureState.dx < -15){
                     this.props.onSwipeLeft(this.props._id);
                     this.position.setValue({x:0, y:0})
                 }else(

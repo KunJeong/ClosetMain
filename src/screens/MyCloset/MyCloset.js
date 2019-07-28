@@ -5,7 +5,7 @@
 import React, { Component } from 'react';
 import { Platform, View, ScrollView, Text, StatusBar, SafeAreaView, 
          StyleSheet, Dimensions, Image, Alert, TouchableOpacity, TextInput,
-         Modal, FlatList } from 'react-native';
+         Modal, FlatList, ImageBackground } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 
 import { sliderWidth, itemWidth } from './styles/SliderEntry.style';
@@ -20,8 +20,9 @@ import Category_Closet from './Category_Closet'
 import Swiper from 'react-native-swiper';
 import ViewShot from 'react-native-view-shot';
 import OutfitImage from './OutfitImage';
-import {v4 as uuid} from 'uuid'
+import {v4 as uuid} from 'uuid';
 import FastImage from 'react-native-fast-image'
+import update from 'immutability-helper';
 
 
 const IS_ANDROID = Platform.OS === 'android';
@@ -29,6 +30,9 @@ const SLIDER_1_FIRST_ITEM = 1;
 const screenHeight = Dimensions.get('window').height;
 const screenWidth = Dimensions.get('window').width;
 let offset = ((screenHeight - StatusBar.currentHeight) - screenWidth) / 2;
+const verticalMargin = 5;
+const leftMargin = 7;
+var barWidth = screenWidth - leftMargin * 2;
 
 
 class MyCloset extends Component {
@@ -45,7 +49,7 @@ class MyCloset extends Component {
             b_Skirt: false, b_Outer: false, b_Shoes: false,
             b_Hats: false, b_Accessories: false,
 
-            _id : null,
+            
             Outer: null,
             T_shirt: null,
             Dress: null,
@@ -89,7 +93,7 @@ class MyCloset extends Component {
                     } 
                 }
             ],
-
+            _id : "",
             TextInputTitle: "",
             TextInputTag: "",
 
@@ -227,12 +231,30 @@ class MyCloset extends Component {
             }
         }
     }
-    deleteOutfit=(_id)=>{
-        var index = this.state.ImageViewList.indexOf(_id)
-        const newList = [...this.state.ImageViewList];
-        newList.splice(index,1)
+    deleteOutfit=(id)=>{
+        for(var i=0; i<this.state.ImageViewList.length; i++){
+            if(this.state.ImageViewList[i]._id == id){
+                this.setState({ImageViewList : update(this.state.ImageViewList, {$splice:[[i,1]]})})
+            }
+        }
         
-        this.setState({ImageViewList : newList})
+        
+        // var str =""
+        // for(var i=0; i<this.state.ImageViewList.length; i++){
+        //     str = str + ","+ this.state.ImageViewList[i]._id
+        // }
+        // Alert.alert(str)
+        // var index = this.state.ImageViewList.indexOf(_id)
+        // const newList = [...this.state.ImageViewList];
+        // newList.splice(index,1)
+
+        // this.setState({ImageViewList : newList})
+        
+
+        // for(var i=0; i<this.state.ImageViewList.length; i++){
+        //     var str = str + ","+ this.state.ImageViewList[i]._id
+        // }
+        // Alert.alert(str)
     }
     // _share(){
     //     null
@@ -285,18 +307,14 @@ class MyCloset extends Component {
         }
     }
     _renderItem({ item }){
-        const _id = item._id
-        const title = item.title;
-        const tags = item.tags;
-        const imageUri = item.imageUri;
         return (
             <View style={outfit_styles.container}>
-                <Text style={outfit_styles.title}>{title}</Text>
+                <Text style={outfit_styles.title}>{item.title}</Text>
                     <OutfitImage
-                        _id={_id} 
+                        _id={item._id} 
                         style={{ flex: 5 }} 
-                        imgUri={imageUri} 
-                        tags={tags} 
+                        imgUri={item.imageUri} 
+                        tags={item.tags} 
                         onSwipeLeft={this.seeOutfit}
                         onSwipeRight={this.deleteOutfit}
                         />
@@ -326,25 +344,33 @@ class MyCloset extends Component {
                     height={Platform.OS == 'android' ? screenWidth : screenHeight - 94}
                     index={1}>
                     <View style={[IS_ANDROID ? styles_swiper.pageStyle_Android2 : styles_swiper.pageStyle2, { flexDirection: 'row' }]}>
-                        <View style={{ width: '65%', backgroundColor: '#ECE5DD' }}>
-                            <View style={{flex:0.6, flexDirection:'row', marginTop:5, marginHorizontal: 7}}>
-                                <View style={{
-                                    flex: 1.7, flexDirection: 'row', shadowOffset: { width: 0, height: 0 },
-                                    shadowColor: 'grey', shadowOpacity: 0.2, elevation: 1, borderRadius: 5, marginBottom: 10
-                                }}>
+                        <View style={{ width: '65%', backgroundColor: '#FFF' }}>
+                            <View style={{ flex: 0.6, flexDirection: 'row', marginTop: 5 }}>
+                                <View style={{ flex: 0.33, flexDirection: 'row', alignItems: 'center',marginLeft : barWidth*3/100 }}>
+                                    <Icon name="md-share" /*onPress={this._share}*/ color={'#6B4279'} size={25} style={{ paddingHorizontal: 5, marginTop: 5 }} />
+                                </View>
+                                <ImageBackground
+                                    source={Platform.OS === 'ios' ? require('../../assets/gradient2.jpg') : require('../../assets/gradient3.jpg')}
+                                    style={[
+                                        outfit_styles.cardShadow,
+                                        outfit_styles.post,
+                                        {flex: 1.4, alignItems:'center', flexDirection: 'row', elevation: 2, marginHorizontal: barWidth*1/100,
+                                        marginTop: verticalMargin, width: barWidth*5/40, marginBottom : verticalMargin}
+                                    ]}
+                                    imageStyle={{ borderRadius: 10 }}
+                                >
                                     <TextInput
                                         underlineColorAndroid='transparent'
                                         placeholder="Title"
-                                        placeholderTextColor='grey'
-                                        style={{ flex: 1, fontWeight: '700', padding: 5 }}
+                                        placeholderTextColor='#B993C7'
+                                        style={{ flex: 1, fontWeight: '700', padding: 5, paddingLeft: 10, color:'#6B4279' }}
                                         onChangeText={(TextInputTitle) => this.setState({ TextInputTitle })}
                                         value={this.state.TextInputTitle} />
-                                </View>
-                                <View style={{flex:1, flexDirection:'row'}}>
-                                    <Icon name="md-share" /*onPress={this._share}*/ color={'#4D4E4F'} size={25} style={{ paddingHorizontal: 5, marginTop: 5 }} />
-                                    <Icon name="md-create" onPress={this._edit(this.state._id)} color={'#4D4E4F'} size={25} style={{ paddingHorizontal: 5, marginTop: 5 }} />
+                                </ImageBackground>
+                                <View style={{flex:0.67, flexDirection:'row', alignItems:'center'}}>
+                                    <Icon name="md-create" onPress={this._edit(this.state._id)} color={'#6B4279'} size={25} style={{ paddingHorizontal: 5, marginTop: 5 }} />
                                     <TouchableOpacity onPress={this.onCapture}>
-                                    <Icon name="md-add"  color={'#4D4E4F'} size={25} style={{ paddingHorizontal: 5, marginTop: 5 }} />
+                                    <Icon name="md-add"  color={'#6B4279'} size={30} style={{ paddingHorizontal: 5, marginTop: 5 }} />
                                     </TouchableOpacity>
                                     
                                 </View>
@@ -454,28 +480,34 @@ class MyCloset extends Component {
                                 </View>
                                 </ViewShot>
                             <View style={{ flex: 1 }}></View>
-                            <View style={{
-                                flex: 0.6, flexDirection: 'row', shadowOffset: { width: 0, height: 0 },
-                                shadowColor: 'grey', shadowOpacity: 0.2, elevation: 1, borderRadius: 5, marginHorizontal: 6
-                            }}>
+                            <ImageBackground
+                                source = {Platform.OS === 'ios'? require('../../assets/gradient2.jpg') : require('../../assets/gradient3.jpg')}
+                                style = {[
+                                    outfit_styles.cardShadow,
+                                    outfit_styles.post,
+                                    {flex: 0.6, flexDirection: 'row', elevation: 1, marginHorizontal: barWidth*3/100, marginTop: verticalMargin, width: barWidth*25/40, marginBottom : verticalMargin}
+                                ]}
+                                imageStyle={{ borderRadius: 10 }}
+                            >
+                            
                                 <TextInput
                                     underlineColorAndroid='transparent'
-                                    placeholder="Use #Hashtags to describe your look!"
-                                    placeholderTextColor='grey'
-                                    style={{ flex: 1, fontWeight: '700', padding: 10 }}
+                                    placeholder="#Hashtags"
+                                    placeholderTextColor='#B993C7'
+                                    style={{ flex: 1, fontWeight: '700', padding: 10, color:'#6B4279', fontSize:14 }}
                                     onChangeText={(TextInputTag) => this.setState({ TextInputTag })}
                                     value={this.state.TextInputTag}
                                 />
-                            </View>
+                            </ImageBackground>
                             <View style={{flex:0.75}}></View>
                         </View>
                         <View
-                            style={{ width: '35%', backgroundColor: '#A6A6A6' }} >
+                            style= {{ width: '35%', backgroundColor: '#f2f2f2', borderRadius:15 }} >
                             <View style = {{backgroundColor: '#FFE7FF'}}></View>
                             <FlatList
                                 data={this.state.ImageViewList}
                                 renderItem={this._renderItem}/>
-                            <View style={{flex:1}}></View>
+                            <View style={{height: Platform.OS === 'ios'? 0 : 50}}></View>
                         </View>
                     </View>
                     <View style={[IS_ANDROID ? styles_swiper.pageStyle_Android : styles_swiper.pageStyle, { paddingTop: 10 }]}>
@@ -485,28 +517,28 @@ class MyCloset extends Component {
                             directionalLockEnabled={true}
                         >
                             <View style={{ flexDirection: 'row', alignItems: 'stretch', justifyContent: 'center' }}>
-                                <View style={this.state.b_Hats ? { borderBottomColor: '#92DFF3', borderBottomWidth: 3 } : {}}>
+                                <View style={this.state.b_Hats ? { borderBottomColor: '#bfe9f5', borderBottomWidth: 3 } : {}}>
                                     <Category_Closet title="Hats" imageUri={require('../../assets/for_search/hats.png')} uponPress={this.uponPressHats} isopen={this.state.b_Hats} />
                                 </View>
-                                <View style={this.state.b_Outer ? { borderBottomColor: '#92DFF3', borderBottomWidth: 3 } : {}}>
+                                <View style={this.state.b_Outer ? { borderBottomColor: '#bfe9f5', borderBottomWidth: 3 } : {}}>
                                     <Category_Closet title="Outer" imageUri={require('../../assets/for_search/outer.png')} uponPress={this.uponPressOuter} isopen={this.state.b_Outer} />
                                 </View>
-                                <View style={this.state.b_T_shirt ? { borderBottomColor: '#92DFF3', borderBottomWidth: 3 } : {}}>
+                                <View style={this.state.b_T_shirt ? { borderBottomColor: '#bfe9f5', borderBottomWidth: 3 } : {}}>
                                     <Category_Closet title="T-shirt" imageUri={require('../../assets/for_search/T.png')} uponPress={this.uponPressT} isopen={this.state.b_T_shirt} />
                                 </View>
-                                <View style={this.state.b_Dress ? { borderBottomColor: '#92DFF3', borderBottomWidth: 3 } : {}}>
+                                <View style={this.state.b_Dress ? { borderBottomColor: '#bfe9f5', borderBottomWidth: 3 } : {}}>
                                     <Category_Closet title="Dress" imageUri={require('../../assets/for_search/dress.png')} uponPress={this.uponPressDress} isopen={this.state.b_Dress} />
                                 </View>
-                                <View style={this.state.b_Trousers ? { borderBottomColor: '#92DFF3', borderBottomWidth: 3 } : {}}>
+                                <View style={this.state.b_Trousers ? { borderBottomColor: '#bfe9f5', borderBottomWidth: 3 } : {}}>
                                     <Category_Closet title="Trousers" imageUri={require('../../assets/for_search/Trousers.png')} uponPress={this.uponPressTrousers} isopen={this.state.b_Trousers} />
                                 </View>
-                                <View style={this.state.b_Skirt ? { borderBottomColor: '#92DFF3', borderBottomWidth: 3 } : {}}>
+                                <View style={this.state.b_Skirt ? { borderBottomColor: '#bfe9f5', borderBottomWidth: 3 } : {}}>
                                     <Category_Closet title="Skirt" imageUri={require('../../assets/for_search/skirt.png')} uponPress={this.uponPressSkirt} isopen={this.state.b_Skirt} />
                                 </View>
-                                <View style={this.state.b_Shoes ? { borderBottomColor: '#92DFF3', borderBottomWidth: 3 } : {}}>
+                                <View style={this.state.b_Shoes ? { borderBottomColor: '#bfe9f5', borderBottomWidth: 3 } : {}}>
                                     <Category_Closet title="Shoes" imageUri={require('../../assets/for_search/shoes.png')} uponPress={this.uponPressShoes} isopen={this.state.b_Shoes} />
                                 </View>
-                                <View style={this.state.b_Accessories ? { borderBottomColor: '#92DFF3', borderBottomWidth: 3 } : {}}>
+                                <View style={this.state.b_Accessories ? { borderBottomColor: '#bfe9f5', borderBottomWidth: 3 } : {}}>
                                     <Category_Closet title="Accessories" imageUri={require('../../assets/for_search/accessories.png')} uponPress={this.uponPressAcc} isopen={this.state.b_Accessories} />
                                 </View>
                             </View>
@@ -542,6 +574,27 @@ const outfit_styles = StyleSheet.create({
         fontSize: 13,
         marginTop : 10,
         marginBottom : 5
+    },
+    cardShadow: {
+        shadowColor: '#000',
+        shadowOffset: {width:0, height: 2},
+        shadowOpacity: 0.3,
+        shadowRadius: 2 ,
+        //elevation: 6
+    },
+    // image: {
+    //     // marginTop: 5 ,
+    //     marginLeft: shift,
+    //     width: '100%',
+    //     backgroundColor: '#FFF',
+    //     borderRadius: 10,
+    // },
+    post: {
+        // marginLeft: gutter,
+        // width: 200,
+        // marginBottom: verticalMargin ,
+        borderRadius: 10,
+        // borderWidth: 4
     }
 })
 

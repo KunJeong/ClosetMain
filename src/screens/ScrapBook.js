@@ -35,7 +35,7 @@ class ScrapBook extends Component {
                 //     let jonh = realm.create('Comment', {userId: 'add', commentId: '1010100', comment: 'wtf', like: []})
                 // });
     
-                let carOwners = realm.objects('Comment');
+                let carOwners = realm.objects('Post');
                 let subscribe = carOwners.subscribe();
                 // Alert.alert('llll')
                 var total = ''
@@ -49,7 +49,7 @@ class ScrapBook extends Component {
     
         constructor() {
             super();
-            this.getData()
+            // this.getData()
         }
     render() {
         return (

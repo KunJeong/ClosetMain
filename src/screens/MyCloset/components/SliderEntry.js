@@ -40,7 +40,7 @@ export default class SliderEntry extends Component<Props> {
             <TouchableOpacity
               activeOpacity={1}
               style={styles.slideInnerContainer}
-              onPress = {this.touched/*[()=>this.props.onClick(illustration)]*/}
+              onPress = {this.touched}
               >
                 <View style={styles.shadow} />
                 {this.state.touched ? (<View style={styles.imageContainer_Touched}>

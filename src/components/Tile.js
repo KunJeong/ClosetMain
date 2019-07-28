@@ -3,7 +3,7 @@
  */
 
 import React, { Component } from 'react';
-import { View, StyleSheet, Text, ImageBackground, Platform, Dimensions } from 'react-native';
+import { View, StyleSheet, Text, ImageBackground, Platform, Dimensions, Image } from 'react-native';
 
 type Props = {
     height: number,
@@ -69,7 +69,7 @@ export default class Block extends Component<Props>{
             <View
                 style = {[styles.image, styles.cardShadow, {
                     height: this.props.height}]}>
-                
+                <Image source={this.props.source} style={{width: postWidth, height: this.props.height, borderRadius:10}} imageStyle={{borderRadius:10}}></Image>
             </View>
 
         </ImageBackground>
@@ -81,11 +81,12 @@ export default class Block extends Component<Props>{
                     {
                         marginTop: this.props.first? verticalMargin : this.props.offset ,
                         marginLeft: this.props.flip? (this.props.isLeft? flipRight : flipLeft) : (this.props.isLeft? leftMargin : gutter),
-                        height: this.props.height + extraHeight,
+                        height: this.props.height,
                         backgroundColor: '#FFF',
                     },
                     styles.cardShadow]}>
-        
+        <Image source={this.props.source} style={{width: postWidth, height: this.props.height, borderRadius:10}} imageStyle={{borderRadius:10}}></Image>
+            
             </View>
         }
         </View>

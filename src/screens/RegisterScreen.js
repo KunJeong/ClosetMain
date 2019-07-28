@@ -11,11 +11,8 @@ import {
 } from 'react-native';
 import Realm from 'realm';
 import { SERVER_URL } from '../constants';
-import { One_Image, Comment, Post, LookBook, Clothes, Closet, User, Tag } from '../schemas';
+import { One_Image, Post, Tag, Clothes, Closet, Comment, LookBook, User } from '../schemas';
 import { thisTypeAnnotation } from '@babel/types';
-
-// const email = "";
-// const passworld = "";
 
 export default class RegisterScreen extends Component {
     constructor(props) {
@@ -28,6 +25,8 @@ export default class RegisterScreen extends Component {
         };
         this.register = this.register.bind(this);
         this.cancel = this.cancel.bind(this);
+        this.initLogin = this.initLogin.bind(this);
+        this.initLogin2 = this.initLogin2.bind(this);
     }
 
     async register() {
@@ -40,7 +39,7 @@ export default class RegisterScreen extends Component {
             );
             return;
         }
-        if (this.state.password != this.state.rePassword){
+        if (this.state.password != this.state.rePassword) {
             Alert.alert(
                 '',
                 'Please check password!',
@@ -49,14 +48,12 @@ export default class RegisterScreen extends Component {
             );
             return;
         }
-        const creds = Realm.Sync.Credentials.usernamePassword(this.state.email, this.state.password);
-        Realm.Sync.User.login(SERVER_URL, creds).then(user => {
-            const config = user.createConfiguration({
-                sync: { url: 'realms://fashion.us1.cloud.realm.io/hello' },
-                fullSynchronization: true,
-
-            });
-            config.schema = [One_Image, Comment, Post, LookBook, Clothes, Closet, User, Tag];
+        const creds = Realm.Sync.Credentials.usernamePassword(this.state.username, this.state.password);
+        await Realm.Sync.User.login(SERVER_URL, creds).then(user => {
+            let config = user.createConfiguration();
+            config.schema = [One_Image, Post, Tag, Clothes, Closet, Comment, LookBook, User]
+            config.validate_ssl = false
+            config.sync.url = 'realms://fashion.us1.cloud.realm.io/hello'
             Realm.open(config).then((realm) => {
                 realm.write(() => {
                     realm.create('User', {
@@ -75,9 +72,51 @@ export default class RegisterScreen extends Component {
                 })
             });
         });
-        this.props.navigation.navigate('App');
+        this.initLogin();
+        this.initLogin2();
+        // Realm.close();
+        this.props.navigation.navigate('Auth');
     }
-    
+
+    initLogin() {
+        const creds = Realm.Sync.Credentials.usernamePassword(this.state.username, this.state.password);
+        Realm.Sync.User.login('https://fashion.us1.cloud.realm.io', creds).then((user) => {
+            let config = user.createConfiguration();
+            config.schema = [One_Image, Post, Tag, Clothes, Closet, Comment, LookBook, User]
+            config.validate_ssl = false
+            config.sync.url = 'realms://fashion.us1.cloud.realm.io/hello'
+
+            Realm.open(config).then((realm) => {
+                let carOwners = realm.objects('Comment');
+                let subscribe = carOwners.subscribe();
+                var total = ''
+                for (let p of carOwners) {
+                    total += p.comment.toString();
+                }
+                Alert.alert(total);
+            });
+        });
+    }
+    initLogin2() {
+        const user = Realm.Sync.User.current;
+        let config = user.createConfiguration();
+        config.schema = [One_Image, Post, Tag, Clothes, Closet, Comment, LookBook, User]
+        config.validate_ssl = false
+        config.sync.url = 'realms://fashion.us1.cloud.realm.io/hello'
+
+        Realm.open(config).then((realm) => {
+
+            let carOwners = realm.objects('Comment');
+            let subscribe = carOwners.subscribe();
+            // Alert.alert('llll')
+            var total = ''
+            for (let p of carOwners) {
+                total += p.comment.toString();
+            }
+            // Alert.alert(total);
+        });
+    }
+
     cancel() {
         this.props.navigation.navigate('Auth');
     }

@@ -16,10 +16,13 @@ import {
     Dimensions,
     TouchableOpacity,
     ImageBackground,
+    Alert
 } from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons';
 import Category from './search/categories/Category';
 import TAG from './search/categories/TAG';
+import Realm from 'realm'
+import {One_Image, LookBook, Closet, Clothes, Post, Tag, User, Comment} from '../../schemas'
 // import styles from './search/categories/index.style'
 
 const title1 = "Fashion"
@@ -64,7 +67,7 @@ class Search extends Component<{}, State> {
     uponPressCategory(cat) {
         if(this.state.category == 'none'){
             this.setState({category: cat});
-            this.setState({ text: ":" + cat + " "+ this.state.text });
+            this.setState({ text: ":" + cat + this.state.text });
         }
         else{
             this.setState({category: 'none'});
@@ -74,6 +77,30 @@ class Search extends Component<{}, State> {
     _onPressOptions() {
         this.setState({ Bar: !this.state.Bar })
     }
+    // search(){
+    //     return(<Text>{this.state.text}</Text>)
+            // const user = Realm.Sync.User.current 
+            //     let config = user.createConfiguration();
+            //     config.schema = [One_Image, Post, Tag, Clothes, Closet, Comment, LookBook, User]
+                
+            //     config.validate_ssl=false
+            //     config.sync.url = 'realms://fashion.us1.cloud.realm.io/testRealm'
+                
+            //     Realm.open(config).then((realm) => {
+                    
+        
+            //         let carOwners = realm.objects('Post');
+            //         let subscribe = carOwners.subscribe();
+                   
+            //         var total = ''
+            //         for (let p of carOwners) {
+            //             total += p.comment.toString();
+            //         }
+            //         Alert.alert(total);
+            //     });
+            
+                
+    // }
     parseText(text:string){
         var category = '';
         var filters = [''];
@@ -106,6 +133,7 @@ class Search extends Component<{}, State> {
 
     optionBarRender() {
         return (
+            <View>
             <ImageBackground
                 source={Platform.OS === 'ios' ? require('../../assets/gradient2.jpg') : require('../../assets/gradient3.jpg')}
                 style={[
@@ -115,6 +143,7 @@ class Search extends Component<{}, State> {
                 ]}
                 imageStyle={{ borderRadius: 10 }}
             >
+                
                 <View style={{ flexWrap: 'wrap', flexDirection: 'row' }}>
                     <Text style={{ fontWeight: 'bold', margin: 15, marginBottom: 0 }}> Categories </Text>
                     <View style={{ flexWrap: 'wrap', flexDirection: 'row', alignItems: 'center', padding: 15, width: '100%' }}>
@@ -137,6 +166,7 @@ class Search extends Component<{}, State> {
                     </View>
                 </View>
             </ImageBackground>
+            </View>
         )
     }
     render() {
@@ -161,8 +191,7 @@ class Search extends Component<{}, State> {
                         // elevation: 4 ,
                         // borderRadius: 10,
                     }}>
-
-                        <Icon name="md-search" size={25} style={{ paddingLeft: 15, paddingRight: 15 }} />
+                        <TouchableOpacity><Icon name="md-search" size={25} style={{ paddingLeft: 15, paddingRight: 15 }} /></TouchableOpacity>
                         <TextInput
                             underlineColorAndroid='transparent'
                             placeholder="검색"
@@ -172,7 +201,6 @@ class Search extends Component<{}, State> {
                             value={this.state.text}
                         />
                         <TouchableOpacity
-
                             onPress={this._onPressOptions}
                             style={{ paddingLeft: 15, paddingRight: 15 }}>
                             <Icon

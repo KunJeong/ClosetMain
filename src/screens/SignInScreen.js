@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import Realm from 'realm';
 import { SERVER_URL } from '../constants';
-import { One_Image, Post, Clothes, Closet, Scrap, User, Tag } from '../schemas';
+import { One_Image, Post, Tag, Clothes, Closet, Comment, LookBook, User } from '../schemas';
 import { thisTypeAnnotation } from '@babel/types';
 
 export default class SignInScreen extends Component {
@@ -23,12 +23,15 @@ export default class SignInScreen extends Component {
     }
     this.signIn = this.signIn.bind(this);
     this.register = this.register.bind(this);
+    this.initLogin = this.initLogin.bind(this);
+    this.initLogin2 = this.initLogin2.bind(this);
   }
   onClickListener = (viewId) => {
     Alert.alert("Alert", "Button pressed " + viewId);
   }
 
   async signIn() {
+
     if ((!this.state.username) || (!this.state.password)) {
       Alert.alert(
         '',
@@ -39,7 +42,6 @@ export default class SignInScreen extends Component {
       return;
     }
     try {
-      this.setState({ error: undefined });
       let creds = await Realm.Sync.Credentials.usernamePassword(this.state.username, this.state.password, false);
       await Realm.Sync.User.login(SERVER_URL, creds);
     }
@@ -50,7 +52,11 @@ export default class SignInScreen extends Component {
     const isAuthenticated = !!Realm.Sync.User.current;
 
     if (isAuthenticated) {
-      this.props.navigation.navigate('App');
+      // this.initLogin();
+      this.initLogin2();
+      this.initLogin();
+      // this.initLogin2();
+      this.props.navigation.navigate('App', { username: this.state.username, password: this.state.password });
     }
     else {
       Alert.alert(
@@ -60,6 +66,59 @@ export default class SignInScreen extends Component {
         { cancelable: false },
       );
     }
+  }
+
+  initLogin() {
+    const creds = Realm.Sync.Credentials.usernamePassword(this.state.username, this.state.password, false);
+    Realm.Sync.User.login('https://fashion.us1.cloud.realm.io', creds).then((user) => {
+      // Alert.alert(username, password);
+      // const user = Realm.Sync.User.current 
+      let config = user.createConfiguration();
+      config.schema = [One_Image, Post, Tag, Clothes, Closet, Comment, LookBook, User]
+      // config.fullSynchronization = true;
+      // config.deleteRealmIfMigrationNeeded = true;
+      config.validate_ssl = false
+      config.sync.url = 'realms://fashion.us1.cloud.realm.io/hello'
+
+      Realm.open(config).then((realm) => {
+        // realm.write(() => {
+        //     let jonh = realm.create('Comment', {userId: 'add', commentId: '1010100', comment: 'wtf', like: []})
+        // });
+
+        let carOwners = realm.objects('Comment');
+        let subscribe = carOwners.subscribe();
+        // Alert.alert('llll')
+        var total = ''
+        for (let p of carOwners) {
+          total += p.comment.toString();
+        }
+        // Alert.alert(total);
+      });
+    });
+  }
+  initLogin2(){
+    const user = Realm.Sync.User.current;
+    let config = user.createConfiguration();
+    config.schema = [One_Image, Post, Tag, Clothes, Closet, Comment, LookBook, User]
+    // config.fullSynchronization = true;
+    // config.deleteRealmIfMigrationNeeded = true;
+    config.validate_ssl = false
+    config.sync.url = 'realms://fashion.us1.cloud.realm.io/hello'
+
+    Realm.open(config).then((realm) => {
+      // realm.write(() => {
+      //     let jonh = realm.create('Comment', {userId: 'add', commentId: '1010100', comment: 'wtf', like: []})
+      // });
+
+      let carOwners = realm.objects('Comment');
+      let subscribe = carOwners.subscribe();
+      // Alert.alert('llll')
+      var total = ''
+      for (let p of carOwners) {
+        total += p.comment.toString();
+      }
+      Alert.alert(total);
+    });
   }
 
   signOut() {
